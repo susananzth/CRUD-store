@@ -90,28 +90,28 @@ class PermissionSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            //Task
+            //Products
             [
                 'id'    => 13,
-                'title' => 'task_index',
+                'title' => 'product_index',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'id'    => 14,
-                'title' => 'task_add',
+                'title' => 'product_add',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'id'    => 15,
-                'title' => 'task_edit',
+                'title' => 'product_edit',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'id'    => 16,
-                'title' => 'task_delete',
+                'title' => 'product_delete',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

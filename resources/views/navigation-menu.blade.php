@@ -1,18 +1,5 @@
 <nav class="navbar navbar-light navbar-panel">
     <div class="container-fluid d-block">
-        {{--<a href="{{ route('home') }}" class="navbar-brand">
-            <x-jet-application-mark  />
-        </a>
-        <!-- Navigation Links -->
-        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-            <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-                {{ __('Dashboard') }}
-            </x-jet-nav-link>
-
-            <x-jet-nav-link href="{{ route('task.index') }}" :active="request()->routeIs('task.index')">
-                {{ __('Tasks') }}
-            </x-jet-nav-link>
-        </div>--}}
         <!-- Teams Dropdown -->
         @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
             <div class="ml-3 relative">
@@ -74,7 +61,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                 <li><span class="dropdown-item-text text-muted" style="width: max-content;">{{ __('Manage Account') }}</span></li>
-                <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                <x-jet-dropdown-link href="#">
                     {{ __('Profile') }}
                 </x-jet-dropdown-link>
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())

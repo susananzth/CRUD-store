@@ -32,36 +32,41 @@
         @yield('rsc_top')
         @livewireStyles
     </head>
-    <body class="d-flex h-100 text-center body-external">
-        <div class="col-6 d-flex h-100 p-3 mx-auto flex-column">
-            <header class="mb-auto text-white ">
-                <div>
-                    <a class="no-style" href="{{ url('/') }}">
-                        <h3 class="float-md-start mb-0">
-                            <img src="img\logo.png" class="d-inline-block logo" alt="susananzth" loading="lazy">
-                            SusanaNzth
-                        </h3>
-                    </a>
-
-                    <nav class="nav nav-masthead justify-content-center float-md-end">
-                        <a class="nav-link" href="{{ url('/') }}">inicio</a>
+    <body class="h-auto">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <img src="{{asset('img/logo.png')}}" class="d-inline-block logo" alt="susananzth" loading="lazy">
+                <a class="navbar-brand" href="{{ url('/') }}">SusanaNzth</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ url('/') }}">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('store') }}">Todos los productos</a></li>
+                    </ul>
+                    <form class="d-flex">
                         @if (Route::has('login'))
-                            @auth
-                                <a class="nav-link" href="{{ route('home') }}">Panel administrativo</a>
-                            @else
-                                <a class="nav-link" href="{{ route('login') }}">Iniciar sesión</a>
-                            @endauth
-                        @endif
-                    </nav>
+                        @auth
+                            <a class="nav-link" href="{{ route('home') }}">Panel administrativo</a>
+                        @else
+                            <a class="nav-link" href="{{ route('login') }}">Iniciar sesión</a>
+                        @endauth
+                    @endif
+                        <button class="btn btn-outline-dark" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
+                            Cart
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                        </button>
+                    </form>
                 </div>
-            </header>
+            </div>
+        </nav>
 
             {{ $slot }}
-
-            <footer class="mt-auto text-white ">
-                <p>Proyecto desarrollado por Susana Piñero Rodríguez</p>
-                <p>Copyright © Susana Piñero Rodríguez 2021 - 2022</p>
+            <footer class="py-5 bg-dark">
+                <div class="container">
+                    <p class="m-0 text-center text-white">Proyecto desarrollado por Susana Piñero Rodríguez</p>
+                    <p class="m-0 text-center text-white">Copyright &copy; Susana Piñero Rodríguez 2021 - 2022</p>
+                </div>
             </footer>
-        </div>
     </body>
 </html>

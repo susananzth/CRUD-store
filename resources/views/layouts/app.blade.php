@@ -95,23 +95,17 @@
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFour">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            <i class="bi bi-shield-shaded me-2"></i>Permisos
+                            <i class="bi bi-basket me-2"></i>Productos
                         </button>
                         </h2>
                         <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionMenu">
                         <div class="accordion-body">
                             <ul class="list-group">
                                 <li class="list-group-item ps-5">
-                                    <a href="" target="_blank" rel="noopener noreferrer">
-                                        <i class="bi bi-card-list me-2"></i>
-                                        Listado
-                                    </a>
+                                    <a href="{{route('product.index')}}"><i class="bi bi-card-list me-2"></i> Listado</a>
                                 </li>
                                 <li class="list-group-item ps-5">
-                                    <a href="" target="_blank" rel="noopener noreferrer">
-                                        <i class="bi bi-plus-circle me-2"></i>
-                                        Agregar
-                                    </a>
+                                    <a href=""><i class="bi bi-plus-circle me-2"></i>Agregar</a>
                                 </li>
                             </ul>
                         </div>
@@ -119,7 +113,7 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
-                        <a href="{{route('profile.show')}}" class="accordion-button collapsed no-toggle">
+                        <a href="#" class="accordion-button collapsed no-toggle">
                             <i class="bi bi-gear me-2"></i>Account
                         </a>
                         </h2>
@@ -161,7 +155,7 @@
                 <footer class="footer bg-white">
                     <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; SusanaNzth 2021</span>
+                        <span>Copyright &copy; SusanaNzth 2021 - 2022</span>
                     </div>
                     </div>
                 </footer>{{-- Fin del Footer --}}

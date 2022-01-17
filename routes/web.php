@@ -4,8 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\TaskController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('posts', PostController::class);
+Route::get('store', [ProductController::class, 'store'])->name('store');
+Route::resource('product', ProductController::class);
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::resource('task', TaskController::class);
     Route::resource('user', UserController::class);
     Route::resource('role', RoleController::class);
 });
