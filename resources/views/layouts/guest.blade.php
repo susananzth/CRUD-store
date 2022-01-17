@@ -5,8 +5,8 @@
         <meta charset="utf-8">
         <meta name="DC.Language" scheme="RFC1766" content="Spanish">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Sistema base de CRUD de Usuarios, Roles y Permisos. Desarrollado por Susana N. Piñero Rodríguez @susananzth"/>
-        <meta name="keywords" content="Laravel, Laravel 8, PHP, Laravel, User, Roles, Permisos"/>
+        <meta name="description" content="Sistema de comercio electrónico. Desarrollado por Susana N. Piñero Rodríguez @susananzth"/>
+        <meta name="keywords" content="Laravel, Laravel 8, PHP, Laravel, Store, ecommerce, e-commerce, tienda online"/>
         <meta name="author" content="Susana Piñero Rodríguez" />
         <meta name="copyright" content="Susana N. Piñero Rodríguez" />
         <meta name="reply-to" content="me@susananzth.com">

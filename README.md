@@ -1,6 +1,6 @@
-# CRUD de roles, permisos y usuarios en Laravel 8.79 🤓
+# CRUD de comercio electrónico en Laravel 8.79 🤓
 
-Sistema web para crear, modificar, eliminar y listar usuarios, roles y permisos.
+Sistema web de tienda online.
 
 ## Comenzando 💪🚀
 
@@ -29,11 +29,11 @@ Paso a paso de lo que debes ejecutar para tener el proyecto en su servidor local
     ```
  3. Luego, clona el repositorio dentro de la carpeta de tu servidor con el siguiente comando:
     ```
-    git clone https://github.com/susananzth/CRUD-user-role-permission.git
+    git clone https://github.com/susananzth/CRUD-store.git
     ```
  4. Ingresa a la carpeta del repositorio recien descargado desde tu explorador de archivos o con el siguiente comando:
     ```
-    cd CRUD-user-role-permission
+    cd CRUD-store
     ```
  5. Instala las dependencias del proyecto con los siguientes comandos:
     ```
@@ -42,7 +42,7 @@ Paso a paso de lo que debes ejecutar para tener el proyecto en su servidor local
     ```
     npm install
     ```
- 5. En la carpeta raiz del proyecto, crea el archivo ".env" copiando la información del [ejemplo](https://github.com/susananzth/CRUD-user-role-permission/blob/main/.env.example) y sustituya valores por los del acceso a su Base de datos.
+ 5. En la carpeta raiz del proyecto, crea el archivo ".env" copiando la información del [ejemplo](https://github.com/susananzth/CRUD-store/blob/main/.env.example) y sustituya valores por los del acceso a su Base de datos.
 
  6. Ejecuta las migraciones y agrega los primeros registros con el siguiente comando:
     ```
@@ -71,7 +71,7 @@ Las herramientas que utilice para crear este proyecto
 
 ## Licencia 📄
 
-Este proyecto está bajo la Licencia (GNU General Public License v3.0) - mira el archivo [LICENSE.md](https://github.com/susananzth/CRUD-user-role-permission/blob/main/LICENSE.md) para detalles
+Este proyecto está bajo la Licencia (GNU General Public License v3.0) - mira el archivo [LICENSE.md](https://github.com/susananzth/CRUD-store/blob/main/LICENSE.md) para detalles
 
 ## Expresiones de Gratitud 🎁
 
