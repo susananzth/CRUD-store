@@ -32,25 +32,45 @@
         @yield('rsc_top')
         @livewireStyles
     </head>
-    <body class="d-flex h-100 text-center body-external">
-        <div class="col-6 d-flex h-100 p-3 mx-auto flex-column">
+    <body class="d-flex h-100 text-center">
+        <div class="col-12 col-md-10 col-xxl-8 d-flex h-100 p-3 mx-auto flex-column">
             <header class="mb-auto text-white ">
                 <div>
                     <a class="no-style" href="{{ url('/') }}">
                         <h3 class="float-md-start mb-0">
-                            <img src="img\logo.png" class="d-inline-block logo" alt="susananzth" loading="lazy">
+                            <x-jet-application-mark/>
                             SusanaNzth
                         </h3>
                     </a>
 
                     <nav class="nav nav-masthead justify-content-center float-md-end">
-                        <a class="nav-link" href="{{ url('/') }}">inicio</a>
+                        <a class="nav-link" href="{{ url('/') }}">@lang('Home')</a>
                         @if (Route::has('login'))
                             @auth
                                 <a class="nav-link" href="{{ route('home') }}">Panel administrativo</a>
                             @else
                                 <a class="nav-link" href="{{ route('login') }}">Iniciar sesión</a>
+
+                                @if (Route::has('register'))
+                                    <a class="nav-link" href="{{ route('register') }}">Registrarse</a>
+                                @endif
                             @endauth
+                        @endif
+                        @if(count(config('app.languages')) > 1)
+                        <div class="dropdown ms-2">
+                            <button id="btn_language" type="button" data-bs-toggle="dropdown" aria-expanded="false" class="nav-link dropdown-toggle">
+                                <i class="bi bi-globe"></i> {{ strtoupper(app()->getLocale()) }}
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="btn_language">
+                                @foreach(config('app.languages') as $lang_locale => $lang_name)
+                                    <li>
+                                        <a class="dropdown-item" href="{{ url()->current() }}?lang={{ $lang_locale }}">
+                                            @lang($lang_name) ({{ strtoupper($lang_locale) }})
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
                         @endif
                     </nav>
                 </div>
