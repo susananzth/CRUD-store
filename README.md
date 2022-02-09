@@ -1,4 +1,4 @@
-# CRUD de comercio electrónico en Laravel 8.79 🤓
+# CRUD de comercio electrónico en Laravel 8.* 🤓
 
 Sistema web de tienda online.
 
@@ -14,7 +14,7 @@ _Que herramientas/programas necesitas para poner en marcha el proyecto y como in
 * Entorno de servidor local, Ej: [Laragon](https://laragon.org/download/), [XAMPP](https://www.apachefriends.org/es/index.html) o [LAMPP](https://bitnami.com/stack/lamp/installer).
 * PHP Version 7.4 - 8.0 [Link](https://www.php.net/downloads.php).
 * Manejador de dependencias de PHP [Composer](https://getcomposer.org/download/).
-* Manejador de dependencias de Node [Node JS](https://nodejs.org/en/download/).
+* [Node JS](https://nodejs.org/en/download/).
 
 
 ### Instalación 🔧
@@ -64,6 +64,8 @@ Las herramientas que utilice para crear este proyecto
 
 * Framework de PHP [Laravel](https://laravel.com/docs/8.x).
 * Toolkit de diseño [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/).
+* Libería de JavaScript [JQuery](https://jquery.com/).
+* Plugin de validación de formulario [JQueryValidation](https://jqueryvalidation.org/).
 
 ## Autores ✒️
 
