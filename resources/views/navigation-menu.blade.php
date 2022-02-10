@@ -1,5 +1,14 @@
 <nav class="navbar navbar-light navbar-panel">
     <div class="container-fluid d-block">
+        {{--<a href="{{ route('home') }}" class="navbar-brand">
+            <x-jet-application-mark  />
+        </a>
+        <!-- Navigation Links -->
+        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+            <x-jet-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
+                {{ __('Dashboard') }}
+            </x-jet-nav-link>
+        </div>--}}
         <!-- Teams Dropdown -->
         @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
             <div class="ml-3 relative">
@@ -20,17 +29,17 @@
                         <div class="w-60">
                             <!-- Team Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Team') }}
+                                @lang('Manage team')
                             </div>
 
                             <!-- Team Settings -->
                             <x-jet-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
-                                {{ __('Team Settings') }}
+                                @lang('Team settings')
                             </x-jet-dropdown-link>
 
                             @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                                 <x-jet-dropdown-link href="{{ route('teams.create') }}">
-                                    {{ __('Create New Team') }}
+                                    @lang('Create new team"')
                                 </x-jet-dropdown-link>
                             @endcan
 
@@ -38,7 +47,7 @@
 
                             <!-- Team Switcher -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Switch Teams') }}
+                                @lang('Switch teams')
                             </div>
 
                             @foreach (Auth::user()->allTeams() as $team)
@@ -49,39 +58,67 @@
                 </x-jet-dropdown>
             </div>
         @endif
-
         <!-- Settings Dropdown -->
         <li class="nav-item dropdown float-end">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a id="dropdown_profile" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" class="nav-link dropdown-toggle">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                 <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->username }}" />
                 @else
                 {{ Auth::user()->username }}
                 @endif
             </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                <li><span class="dropdown-item-text text-muted" style="width: max-content;">{{ __('Manage Account') }}</span></li>
-                <x-jet-dropdown-link href="#">
-                    {{ __('Profile') }}
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown_profile">
+                <li><span class="dropdown-item-text text-muted" style="width: max-content;">@lang('Account settings')</span></li>
+                <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                    @lang('Profile')
                 </x-jet-dropdown-link>
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                     <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
-                        {{ __('API Tokens') }}
+                        @lang('API Tokens')
                     </x-jet-dropdown-link>
                 @endif
                 <li><hr class="dropdown-divider"></li>
-
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <x-jet-dropdown-link href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                    this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-jet-dropdown-link>
-                </form>
+                <x-jet-dropdown-link href="{{ route('logout') }}" data-bs-toggle="modal" data-bs-target="#modal_logout">
+                    @lang('Log Out')
+                </x-jet-dropdown-link>
             </ul>
         </li>
+        @if(count(config('app.languages')) > 1)
+        <li class="nav-item dropdown float-end me-3">
+            <a id="dropdown_language" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" class="nav-link dropdown-toggle">
+                <i class="bi bi-globe"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown_language">
+                @foreach(config('app.languages') as $lang_locale => $lang_name)
+                    <x-jet-dropdown-link href="{{ url()->current() }}?lang={{ $lang_locale }}">
+                        @lang($lang_name) ({{ strtoupper($lang_locale) }})
+                    </x-jet-dropdown-link>
+                @endforeach
+            </ul>
+        </li>
+        @endif
     </div>
 </nav>
+
+{{-- Ventana modal de cerrar sesión --}}
+<div class="modal fade" id="modal_logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="label_modal_logout" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="label_modal_logout">@lang('Ready to Leave?')</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @lang('Select *Logout* below if you are ready to end your current session.')
+            </div>
+            <div class="modal-footer">
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@lang('Cancel')</button>
+                <button type="submit" class="btn btn-primary">@lang('Logout')</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -2,11 +2,15 @@
 
 <x-guest-layout>
     <main class="px-5 py-5 text-white ">
-        <h1>Comercio electrónico</h1>
-        <p class="lead py-3">Proyecto de tienda online. Sirve de base para cualquier proyecto.</p>
-        <p class="lead">Desarrollado con Laravel 8.79, con sistema de autenticación de Laravel Jetstream y aplicando diseño de bootstrap 5.</p>
+        <h1>@lang('Electronic commerce')</h1>
+        <p class="lead py-3">@lang('Online store project. It serves as the basis for any project.')</p>
+        <p class="lead">
+            @lang('Developed with Laravel 8.*, includes Laravel Jetstream authentication system and Bootstrap 5 design toolkit.')
+        </p>
         <p class="lead py-3">
-            <a href="{{route('store')}}" class="btn btn-lg btn-secondary fw-bold border-white bg-white text-dark"><i class="bi bi-shop"></i> Ir a la tienda</a>
+            <a href="{{route('store')}}" class="btn btn-lg btn-primary fw-bold">
+                <i class="bi bi-shop"></i> @lang('Go to the store')
+            </a>
         </p>
     </main>
 </x-guest-layout>
